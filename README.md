@@ -1,28 +1,28 @@
-# local branch creation #
+# Create Local Branch #
 
 First, you must create your branch locally. Create a branch for every feature you work on.
 
 	git checkout -b your_branch
 
-# basic git workflow #
+# Basic Workflow #
 
 	git add .
 	git commit -m "message"
 	git status
 
-# Initial push back up to github repo #
+# Initial Push to Remote Github Repo #
 
 After that, you can work locally in your branch, when you are ready to share the branch, push it. The next command push the branch to the remote repository origin and tracks it. 
 	git push -u origin your_branch
 
-# teammates can play too! #
+# Pull Remote Branch #
 
-Teammates can reach your branch, by doing:
+You and your teammates can pull remote branches like so:
 	
 	git pull
 	git checkout origin/your_branch
 
-# push existing branches (after initial commit) #
+# Push Existing Branches After Initial Commit #
 
 You can continue working in the branch and pushing whenever you want without passing arguments to git push (argumentless git push will push the master to remote master, your_branch local to remote your_branch, etc...)
 
@@ -30,42 +30,32 @@ You can continue working in the branch and pushing whenever you want without pas
 
 Teammates can push to your branch by doing commits and then push explicitly.
 
-#When you want new code from another branch#
+#Rebasing#
 
 	git rebase
+	// to be continued...
 
 To pull down the latest changes from the a branch to you local feature branch, you must merge the branch with your local feature branch. 
 
 	git checkout your_branch 
 	git merge branch_with_desired_code
 
-#Careful: don't merge master locally#
+#Bad Practices: Don't merge master locally and push back up.#
+This makes the commit history messy. Use pull requests instead.
 
 	BAD: git checkout master
-<code><strike>BAD: git merge your_branch</strike></code>
-<code><strike>BAD: git push</strike></code>
+	BAD: git merge your_branch
+	BAD: git push
 
 Basically we don't want stuff committed to the master branch from a local repo. We want to use pull requests through git hub to commit production code. 
 
-#finalize to production code#
+#Merge In Via Pull Requests#
 
-Push your branch up, then goto github and open a pull request between your code and the master branch. Then ask a backend guy to review the code and close the pull. 
+Push your branch up, then go to github and open a pull request between your code and the master branch. Then ask a backend guy to review the code and close the pull. 
 
-reset the origin: 
+#Set Remote Url#
 	
 	git remote set-url origin <url>
-
-
-#A basic workflow#
-	
-	git push origin HEAD:refs/heads/your_branch
-
-	git checkout --track -b your_branch origin/your_branch
-... work ...
-	git commit
-... work ...
-	git commit
-	git push
 
 #Configuring Git#
 

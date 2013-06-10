@@ -41,7 +41,7 @@ To pull down the latest changes from the a branch to you local feature branch, y
 
 #Careful: don't merge master locally#
 
-<code><strike>BAD: git checkout master</strike></code>
+	BAD: git checkout master
 <code><strike>BAD: git merge your_branch</strike></code>
 <code><strike>BAD: git push</strike></code>
 
@@ -59,15 +59,15 @@ reset the origin:
 #A basic workflow#
 
 ... work ...
-git commit
+	git commit
 ... work ...
-git commit
-git push origin HEAD:refs/heads/your_branch
+	git commit
+	git push origin HEAD:refs/heads/your_branch
 Or tracking the branch to avoid the arguments to git push
 
-git checkout --track -b your_branch origin/your_branch
+	git checkout --track -b your_branch origin/your_branch
 ... work ...
-git commit
+	git commit
 ... work ...
-git commit
-git push
+	git commit
+	git push

@@ -57,13 +57,8 @@ reset the origin:
 
 
 #A basic workflow#
-
-... work ...
-	git commit
-... work ...
-	git commit
+	
 	git push origin HEAD:refs/heads/your_branch
-Or tracking the branch to avoid the arguments to git push
 
 	git checkout --track -b your_branch origin/your_branch
 ... work ...
@@ -71,3 +66,21 @@ Or tracking the branch to avoid the arguments to git push
 ... work ...
 	git commit
 	git push
+
+#Configuring Git#
+
+First you need to tell git your name, so that it can properly label the commits you make.
+
+	git config --global user.name "Your Name Here"
+
+Git saves your email address into the commits you make. The email address is used to associate your commits with your GitHub account.
+
+	git config --global user.email "your_email@example.com"
+
+The last option we need to set will tell git that you don't want to type your username and password every time you talk to a remote server. This will set git to use the credential memory cache.
+
+	git config --global credential.helper cache
+
+By default git will cache your password for 15 minutes. This can be change like so, with timeout setting in seconds.
+	
+	git config --global credential.helper 'cache --timeout=3600'
